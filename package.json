@@ -4,7 +4,7 @@
   "description": "Tool for generating Fieldmap.",
   "main": "index.js",
   "dependencies": {
-    "@solgenomics/brapijs": "git+ssh://git@github.com:IntegratedBreedingPlatform/BrAPI-js.git",
+    "@solgenomics/brapijs": "git+ssh://git@github.com/IntegratedBreedingPlatform/BrAPI-js.git#semver:^1.0.1",
     "@turf/turf": "^5.1.6",
     "d3": "^5.7.0",
     "leaflet": "^1.5.1",
