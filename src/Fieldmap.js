@@ -159,9 +159,9 @@ export default class Fieldmap {
       let sourceTarget = e.sourceTarget;
       let ou = this.plot_map[sourceTarget.feature.properties.observationUnitDbId];
       get_oup_rel(ou).forEach((levels)=>{ 
-          if(levels.levelName == 'replicate'){ ou.replicate = levels.levelCode;}
-        else if(levels.levelName == 'block'){ ou.blockNumber = levels.levelCode;}
-        else if(levels.levelName == 'plot'){ ou.plotNumber = levels.levelCode;}});
+          if(Fieldmap.toUpper(levels.levelName) === 'REPLICATE'){ ou.replicate = levels.levelCode;}
+        else if(Fieldmap.toUpper(levels.levelName) === 'BLOCK'){ ou.blockNumber = levels.levelCode;}
+        else if(Fieldmap.toUpper(levels.levelName) === 'PLOT'){ ou.plotNumber = levels.levelCode;}});
       this.info.html(`<div style="padding: 5px"><div>Germplasm: ${ou.germplasmName}</div>
        <div>Replicate: ${ou.replicate}</div>
        <div>    Block: ${ou.blockNumber}</div>
@@ -306,7 +306,7 @@ export default class Fieldmap {
         .each(ou=>{
           ou.X = parseFloat(ou.X);
           ou.Y = parseFloat(ou.Y);
-          if(ou.observationUnitPosition.observationLevel.levelName.toUpperCase() === "PLOT") results.plots.push(ou);
+          if(Fieldmap.toUpper(ou.observationUnitPosition.observationLevel.levelName) === "PLOT") results.plots.push(ou);
           this.data_parsed+=1;
           this.data_total = ou.__response.metadata.pagination.totalCount;
         })
@@ -579,8 +579,17 @@ export default class Fieldmap {
     return this.splitPlot_memo[memo_key][index];
   }
 
+  /**
+   * converts turf.js feature to Leaflet latlngs parameter
+   * @param feature
+   * @returns {Array<number>|*}
+   */
   static featureToL(feature) {
     return turf.getCoords(turf.flip(feature));
+  }
+
+  static toUpper(str) {
+    return (str || '').toUpperCase();
   }
 
   setLocation(studyDbId) {
