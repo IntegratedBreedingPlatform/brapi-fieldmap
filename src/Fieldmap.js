@@ -159,7 +159,7 @@ export default class Fieldmap {
       let sourceTarget = e.sourceTarget;
       let ou = this.plot_map[sourceTarget.feature.properties.observationUnitDbId];
       get_oup_rel(ou).forEach((levels)=>{ 
-          if(Fieldmap.toUpper(levels.levelName) === 'REPLICATE'){ ou.replicate = levels.levelCode;}
+          if(Fieldmap.toUpper(levels.levelName) === 'REP'){ ou.replicate = levels.levelCode;}
         else if(Fieldmap.toUpper(levels.levelName) === 'BLOCK'){ ou.blockNumber = levels.levelCode;}
         else if(Fieldmap.toUpper(levels.levelName) === 'PLOT'){ ou.plotNumber = levels.levelCode;}});
       this.info.html(`<div style="padding: 5px"><div>Germplasm: ${ou.germplasmName}</div>
