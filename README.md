@@ -63,6 +63,9 @@ fieldMap.opts.plotWidth = d3.select('#width').node().value;
 - [ ] Add plots to existing layout
 - [ ] "Buffer" zones / empty space between plots
 - [ ] Bulk plot edition (select multiple plots and rearrange them)
+- [ ] Add more field manipulation controls
+  - [ ] flip / transpose layout (invert x/y coordinates) 
+  - [ ] single-dimension resizing of layout
 
 
 ## Authors and acknowledgment
