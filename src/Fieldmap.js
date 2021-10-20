@@ -632,7 +632,7 @@ export default class Fieldmap {
       };
       // XXX Using internal brapijs method for now
       nodes.push(brapi.simple_brapi_call({
-        'defaultMethod': 'PATCH',
+        'defaultMethod': 'patch',
         'urlTemplate': '/observationunits/{observationUnitDbId}',
         'params': params,
         'behavior': 'map',
